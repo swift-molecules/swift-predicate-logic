@@ -19,7 +19,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-predicate.git",
+            url: "https://github.com/swift-atoms/swift-predicate.git",
             branch: "main"
         ),
         .package(

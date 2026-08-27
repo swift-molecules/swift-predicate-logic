@@ -46,6 +46,35 @@ struct `Ternary Logic Basic Tests` {
         let result: Bool? = isEven(3)
         #expect(result == false)
     }
+
+    @Test
+    func `returns a generic ternary logic value`() {
+        #expect((isEven(4 as Int?) as Verdict) == .true)
+        #expect((isEven(3 as Int?) as Verdict) == .false)
+        #expect((isEven(nil) as Verdict) == .unknown)
+    }
+}
+
+private enum Verdict: Logic.Ternary.`Protocol` {
+    case `true`
+    case `false`
+    case unknown
+
+    static func from(_ value: Self) -> Bool? {
+        switch value {
+        case .true: true
+        case .false: false
+        case .unknown: nil
+        }
+    }
+
+    init(_ bool: Bool) {
+        self = bool ? .true : .false
+    }
+
+    init(_ bool: Bool?) {
+        self = bool.map { $0 ? .true : .false } ?? .unknown
+    }
 }
 
 @Suite
