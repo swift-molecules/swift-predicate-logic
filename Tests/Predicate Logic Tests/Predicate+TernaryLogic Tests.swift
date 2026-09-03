@@ -1,4 +1,4 @@
-import Logic
+import Logic_Standard_Library_Integration
 import Testing
 
 import Predicate

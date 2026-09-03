@@ -1,4 +1,4 @@
-public import Logic
+public import Logic_Ternary
 public import Predicate
 
 extension Predicate {

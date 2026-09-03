@@ -32,12 +32,18 @@ let package = Package(
             name: "Predicate Logic",
             dependencies: [
                 .product(name: "Predicate", package: "swift-predicate"),
-                .product(name: "Logic", package: "swift-logic"),
+                .product(name: "Logic Ternary", package: "swift-logic"),
             ]
         ),
         .testTarget(
             name: "Predicate Logic Tests",
-            dependencies: ["Predicate Logic"]
+            dependencies: [
+                "Predicate Logic",
+                .product(
+                    name: "Logic Standard Library Integration",
+                    package: "swift-logic"
+                ),
+            ]
         ),
     ],
     swiftLanguageModes: [.v6]
